@@ -1,0 +1,17 @@
+{
+  "name": "cartilha-seguranca-digital-if-sudeste",
+  "private": true,
+  "version": "0.1.1",
+  "type": "module",
+  "description": "Cartilha pública de segurança digital em computadores compartilhados: um monólito modular de frontend.",
+  "scripts": {
+    "start": "npm run build && node scripts/serve.mjs",
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc -p tsconfig.json && node scripts/copy.mjs",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "serve": "node scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

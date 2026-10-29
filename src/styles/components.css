@@ -1,0 +1,237 @@
+.button {
+  min-height: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 21px;
+  font-size: 14px;
+  font-weight: 780;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: transform .16s,background .16s,box-shadow .16s;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button--primary {
+  color: #fff;
+  background: var(--green-strong);
+  box-shadow: 0 10px 20px rgba(4,96,47,.17);
+}
+
+.button--primary:hover {
+  background: #064a27;
+  box-shadow: 0 15px 25px rgba(4,96,47,.2);
+}
+
+.button--secondary {
+  color: var(--green-dark);
+  border-color: var(--line-dark);
+  background: #fff;
+}
+
+.button--secondary:hover {
+  border-color: var(--green);
+}
+
+.text-link {
+  color: var(--green-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.tag {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 40px;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: .025em;
+}
+
+.tag--quiet {
+  color: var(--green-strong);
+  background: #e7f3e9;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 19px;
+}
+
+.fascicle-card {
+  background: #fff;
+  border: 1px solid #e0eae1;
+  border-radius: var(--radius);
+  padding: 26px 23px 20px;
+  min-height: 315px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  transition: transform .2s,box-shadow .2s,border-color .2s;
+}
+
+.fascicle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  border-color: #bed9c5;
+}
+
+.fascicle-card__top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 23px;
+}
+
+.fascicle-card__icon {
+  height: 52px;
+  width: 52px;
+  border-radius: 13px;
+  color: var(--green-strong);
+  background: #edf7ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fascicle-card__number {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  color: #92a49b;
+}
+
+.fascicle-card h3 {
+  font-size: 19px;
+  line-height: 1.25;
+  letter-spacing: -.03em;
+  margin: 13px 0 9px;
+}
+
+.fascicle-card p {
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0 0 21px;
+  color: var(--muted);
+}
+
+.fascicle-card__bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-top: auto;
+  border-top: 1px solid #eff2ef;
+  padding-top: 16px;
+}
+
+.fascicle-card__bottom>span:first-child {
+  font-size: 11px;
+  color: #73877a;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card-arrow {
+  color: var(--green);
+  transition: transform .2s;
+}
+
+.fascicle-card:hover .card-arrow {
+  transform: translateX(4px);
+}
+
+.notice {
+  display: flex;
+  gap: 17px;
+  padding: 22px;
+  border-radius: 14px;
+  margin: 25px 0;
+  background: #edf5ee;
+  border: 1px solid #cfe3d3;
+}
+
+.notice__icon {
+  height: 38px;
+  width: 38px;
+  border-radius: 10px;
+  background: #d5ebdb;
+  color: var(--green-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.notice h3 {
+  font-size: 15px;
+  letter-spacing: -.015em;
+  margin: 1px 0 7px;
+}
+
+.notice p {
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0;
+  color: #466251;
+}
+
+.notice--warning {
+  background: #fff5ec;
+  border-color: #f1dbc6;
+}
+
+.notice--warning .notice__icon {
+  background: #fce5d5;
+  color: #ad5325;
+}
+
+.notice--warning p {
+  color: #705441;
+}
+
+@media(max-width:1090px) {
+  .card-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:550px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fascicle-card {
+    min-height: 270px;
+  }
+
+  .button {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .notice {
+    padding: 16px;
+  }
+
+}
