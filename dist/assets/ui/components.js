@@ -1,5 +1,5 @@
 import { criarIcone } from '../lib/icons.js';
-const enderecoLogotipo = 'https://www.ifsudestemg.edu.br/comunicacao-social/logos/logomarcas/if-sudeste-mg/logo_horizontal_ifsudestemg%281%29.png';
+const enderecoLogotipo = './logo-if-sudeste-mg.png';
 export function criarCabecalho(caminhoAtual) {
     const itensMenu = [['#/', 'Início'], ['#/fasciculos', 'Fascículos'], ['#/como-funciona', 'Como funciona'], ['#/sobre', 'Sobre'], ['#/referencias', 'Referências']];
     let navegacao = '';

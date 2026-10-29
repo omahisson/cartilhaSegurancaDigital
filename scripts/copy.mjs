@@ -3,7 +3,7 @@ import { mkdir as criarPasta, cp as copiarPasta, copyFile as copiarArquivo } fro
 await criarPasta('dist/styles', { recursive: true });
 await copiarPasta('src/styles', 'dist/styles', { recursive: true });
 
-for (const arquivo of ['index.html', 'favicon.svg', 'robots.txt']) {
+for (const arquivo of ['index.html', 'favicon.svg', 'robots.txt', 'logo-if-sudeste-mg.png']) {
   await copiarArquivo(`public/${arquivo}`, `dist/${arquivo}`);
 }
 

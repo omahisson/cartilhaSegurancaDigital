@@ -45,7 +45,7 @@ Para alterar os textos dos fascículos e das referências, edite os arquivos de 
 
 ```text
 cartilha-seguranca-digital/
-├── public/                  HTML de entrada, favicon e robots.txt
+├── public/                  HTML de entrada, favicon, logomarca e robots.txt
 ├── src/
 │   ├── data/                Fascículos, créditos e referências
 │   ├── lib/                 Ícones SVG reutilizáveis
@@ -80,11 +80,11 @@ A navegação usa fragmentos `#/...`, de modo que funciona em hospedagens estát
 
 ## Marca institucional
 
-A paleta visual é baseada no verde, vermelho e branco da identidade dos Institutos Federais. A logomarca horizontal colorida é referenciada a partir do portal oficial do IF Sudeste MG:
+A paleta visual é baseada no verde, vermelho e branco da identidade dos Institutos Federais. A logomarca horizontal colorida foi obtida no portal oficial do IF Sudeste MG:
 
 https://www.ifsudestemg.edu.br/comunicacao-social/logos/logomarcas/if-sudeste-mg/logo_horizontal_ifsudestemg%281%29.png/view
 
-O arquivo original não está incluído nesta entrega; o site faz referência ao endereço público (e exibe uma alternativa textual caso não carregue). **Antes de publicar**, obtenha o arquivo oficial, substitua a referência remota por uma cópia local e valide a aplicação no Manual de Uso da Marca disponibilizado pela instituição.
+O arquivo está incluído em `public/logo-if-sudeste-mg.png` e é copiado para `dist/` no build e no modo de desenvolvimento. O cabeçalho e o rodapé carregam essa cópia local. A prévia offline incorpora a imagem no próprio HTML. A aplicação da marca deve seguir o Manual de Uso da Marca disponibilizado pela instituição.
 
 ## Revisão antes da publicação
 

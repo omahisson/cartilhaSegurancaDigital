@@ -30,7 +30,7 @@ async function copiarArquivos() {
   await criarPasta(resolverCaminho(pastaProjeto, 'dist/styles'), { recursive: true });
   await copiarPasta(resolverCaminho(pastaProjeto, 'src/styles'), resolverCaminho(pastaProjeto, 'dist/styles'), { recursive: true });
 
-  for (const arquivo of ['index.html', 'favicon.svg', 'robots.txt']) {
+  for (const arquivo of ['index.html', 'favicon.svg', 'robots.txt', 'logo-if-sudeste-mg.png']) {
     await copiarArquivo(resolverCaminho(pastaProjeto, 'public', arquivo), resolverCaminho(pastaProjeto, 'dist', arquivo));
   }
 }

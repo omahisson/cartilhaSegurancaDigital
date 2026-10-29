@@ -30,6 +30,10 @@ for (const arquivo of arquivosCodigo) {
   codigo += '\n';
 }
 
+const imagemLogotipo = await lerArquivo('dist/logo-if-sudeste-mg.png');
+const logotipoEmbutido = `data:image/png;base64,${imagemLogotipo.toString('base64')}`;
+codigo = codigo.replace("'./logo-if-sudeste-mg.png'", `'${logotipoEmbutido}'`);
+
 let pagina = await lerArquivo('dist/index.html', 'utf8');
 pagina = pagina.replaceAll(/\s*<link rel="stylesheet"[^>]*>/g, '');
 pagina = pagina.replace(/<script type="module" src="\.\/assets\/main\.js"><\/script>/, `<style>${estilos}</style><script defer>\n(()=>{\n${codigo}\n})();\n</script>`);
