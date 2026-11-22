@@ -10,7 +10,8 @@ Site público da Cartilha de Segurança Digital do projeto de extensão **Harden
 - nove fascículos independentes, com busca por texto e filtros por assunto;
 - página "Como funciona" com o fluxo da implementação **3.0A** e resultado do benchmark, incluindo ressalvas metodológicas;
 - página "Sobre" com contexto extensionista, autoria e orientadores;
-- página "Referências" com fontes documentais e institucionais;
+- página "Referências" com fontes documentais e institucionais, incluindo o PDF da arquitetura;
+- tutorial de configuração da ferramenta de sanitização, com remoção via .NET e diagnóstico por log;
 - versão responsiva, navegação via teclado, impressão dos fascículos e opção de copiar link;
 - indicação explícita de que **arquivos baixados em Downloads, Documentos ou Área de Trabalho não são excluídos pela solução**.
 
@@ -45,7 +46,8 @@ Para alterar os textos dos fascículos e das referências, edite os arquivos de 
 
 ```text
 cartilha-seguranca-digital/
-├── public/                  HTML de entrada, favicon, logomarca e robots.txt
+├── docs/sanitizacao/         Tutorial de configuração da ferramenta
+├── public/                  HTML de entrada, favicon, logomarca, robots.txt e documentos públicos
 ├── src/
 │   ├── data/                Fascículos, créditos e referências
 │   ├── lib/                 Ícones SVG reutilizáveis
@@ -70,6 +72,15 @@ cartilha-seguranca-digital/
 
 A navegação usa fragmentos `#/...`, de modo que funciona em hospedagens estáticas sem regras de reescrita de URL.
 
+## Documentação da ferramenta
+
+- [Tutorial de configuração da sanitização 3.0A](docs/sanitizacao/README.md): configuração no Agendador de Tarefas, remoção via .NET, validação e consulta ao arquivo `%TEMP%\SanitizacaoNavegadores_3.0A.log`.
+- [Documento de Arquitetura de Software e Histórico de Versões (PDF)](public/documentos/documento-arquitetura-hardening.pdf).
+
+O tutorial está acessível pelos links em **Como funciona** e **Referências**, que abrem o README no GitHub e exigem conexão com a internet. Esses links passam a apontar para o novo conteúdo após o envio do commit para a branch `main` do repositório remoto.
+
+O PDF tem uma única fonte em `public/documentos/`, copiada para `dist/documentos/` no build e no modo de desenvolvimento. A prévia offline incorpora o PDF no HTML, permitindo consultá-lo sem acesso à internet.
+
 ## Fidelidade ao projeto
 
 - Implementação **atual** descrita: sanitização dos perfis locais de Chrome, Edge e Firefox, **disparada no logon** do Windows, com orquestração PowerShell e remoção via .NET;
@@ -90,13 +101,13 @@ O arquivo está incluído em `public/logo-if-sudeste-mg.png` e é copiado para `
 
 1. Validar com orientadores e equipe o texto final e os créditos públicos.
 2. Confirmar permissões de publicação da marca institucional e da documentação técnica.
-3. Caso pretendam publicar artefatos do software, criar seção específica após a validação institucional e revisão de segurança.
+3. Revisar o tutorial de configuração e validar a ferramenta no ambiente de implantação.
 4. Realizar testes finais de acessibilidade e responsividade em navegadores/dispositivos reais.
 5. Definir endereço oficial, HTTPS e o responsável editorial pelo conteúdo.
 
 ## Fontes utilizadas
 
 - Proposta de projeto de extensão (2026), fornecida pela equipe;
-- Documento de Arquitetura de Software e Histórico de Versões 3.0A (2026), fornecido pela equipe;
+- [Documento de Arquitetura de Software e Histórico de Versões 3.0A (2026)](public/documentos/documento-arquitetura-hardening.pdf), fornecido pela equipe;
 - [Cartilha de Segurança para Internet do CERT.br](https://cartilha.cert.br/);
 - fontes bibliográficas e institucionais listadas dentro do site.

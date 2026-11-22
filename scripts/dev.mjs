@@ -1,5 +1,5 @@
 import { spawn as iniciarProcesso } from 'node:child_process';
-import { cp as copiarPasta, mkdir as criarPasta, copyFile as copiarArquivo } from 'node:fs/promises';
+import { cp as copiarPasta, mkdir as criarPasta } from 'node:fs/promises';
 import { watch as observarPasta } from 'node:fs';
 import { resolve as resolverCaminho } from 'node:path';
 import { fileURLToPath as converterEnderecoArquivo } from 'node:url';
@@ -30,9 +30,7 @@ async function copiarArquivos() {
   await criarPasta(resolverCaminho(pastaProjeto, 'dist/styles'), { recursive: true });
   await copiarPasta(resolverCaminho(pastaProjeto, 'src/styles'), resolverCaminho(pastaProjeto, 'dist/styles'), { recursive: true });
 
-  for (const arquivo of ['index.html', 'favicon.svg', 'robots.txt', 'logo-if-sudeste-mg.png']) {
-    await copiarArquivo(resolverCaminho(pastaProjeto, 'public', arquivo), resolverCaminho(pastaProjeto, 'dist', arquivo));
-  }
+  await copiarPasta(resolverCaminho(pastaProjeto, 'public'), resolverCaminho(pastaProjeto, 'dist'), { recursive: true });
 }
 
 try {
@@ -53,13 +51,13 @@ try {
 
   function atualizarArquivos() {
     filaCopias = filaCopias.then(copiarArquivos).catch((erro) => {
-      console.error('Erro ao copiar estilos:', erro);
+      console.error('Erro ao copiar arquivos estáticos:', erro);
     });
   }
 
   const observadores = [
     observarPasta(resolverCaminho(pastaProjeto, 'src/styles'), atualizarArquivos),
-    observarPasta(resolverCaminho(pastaProjeto, 'public'), atualizarArquivos)
+    observarPasta(resolverCaminho(pastaProjeto, 'public'), { recursive: true }, atualizarArquivos)
   ];
 
   process.on('SIGINT', () => {

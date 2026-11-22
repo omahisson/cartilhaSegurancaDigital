@@ -32,7 +32,15 @@ export const referencias = {
     "Documentação e fundamentação": [
         {
             titulo: "Documento de Arquitetura de Software e Histórico de Versões (2026)",
-            instituicao: "Projeto Hardening e Proteção de Sessões, IF Sudeste MG, Campus Juiz de Fora"
+            instituicao: "Projeto Hardening e Proteção de Sessões, IF Sudeste MG, Campus Juiz de Fora",
+            endereco: "./documentos/documento-arquitetura-hardening.pdf",
+            observacao: "Documento completo em PDF."
+        },
+        {
+            titulo: "Tutorial de configuração da ferramenta de sanitização 3.0A",
+            instituicao: "Projeto Hardening e Proteção de Sessões, IF Sudeste MG, Campus Juiz de Fora",
+            endereco: "https://github.com/omahisson/cartilhaSegurancaDigital/blob/main/docs/sanitizacao/README.md",
+            observacao: "Configuração no Agendador de Tarefas, remoção via .NET e consulta ao log."
         },
         {
             titulo: "Projeto de Extensão: Hardening e Proteção de Sessões em Computadores Compartilhados (2026)",

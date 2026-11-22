@@ -1,10 +1,8 @@
-import { mkdir as criarPasta, cp as copiarPasta, copyFile as copiarArquivo } from 'node:fs/promises';
+import { mkdir as criarPasta, cp as copiarPasta } from 'node:fs/promises';
 
 await criarPasta('dist/styles', { recursive: true });
 await copiarPasta('src/styles', 'dist/styles', { recursive: true });
 
-for (const arquivo of ['index.html', 'favicon.svg', 'robots.txt', 'logo-if-sudeste-mg.png']) {
-  await copiarArquivo(`public/${arquivo}`, `dist/${arquivo}`);
-}
+await copiarPasta('public', 'dist', { recursive: true });
 
 console.log('✓ Site compilado em dist/');

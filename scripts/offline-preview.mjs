@@ -34,6 +34,13 @@ const imagemLogotipo = await lerArquivo('dist/logo-if-sudeste-mg.png');
 const logotipoEmbutido = `data:image/png;base64,${imagemLogotipo.toString('base64')}`;
 codigo = codigo.replace("'./logo-if-sudeste-mg.png'", `'${logotipoEmbutido}'`);
 
+const documentoArquitetura = await lerArquivo('dist/documentos/documento-arquitetura-hardening.pdf');
+const documentoEmBase64 = documentoArquitetura.toString('base64');
+codigo = codigo.replace(/(["'])\.\/documentos\/documento-arquitetura-hardening\.pdf\1/g, 'enderecoDocumentoArquitetura');
+codigo = `const enderecoDocumentoArquitetura = URL.createObjectURL(new Blob([
+  Uint8Array.from(atob('${documentoEmBase64}'), caractere => caractere.charCodeAt(0))
+], { type: 'application/pdf' }));\n${codigo}`;
+
 let pagina = await lerArquivo('dist/index.html', 'utf8');
 pagina = pagina.replaceAll(/\s*<link rel="stylesheet"[^>]*>/g, '');
 pagina = pagina.replace(/<script type="module" src="\.\/assets\/main\.js"><\/script>/, `<style>${estilos}</style><script defer>\n(()=>{\n${codigo}\n})();\n</script>`);

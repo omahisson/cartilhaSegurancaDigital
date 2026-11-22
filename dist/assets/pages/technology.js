@@ -43,6 +43,7 @@ export function paginaFuncionamento() {
         + `<div class="eyebrow">A implementação atual</div>`
         + `<h2>O processo começa no logon, não no logoff.</h2>`
         + `<p>A solução usa uma tarefa agendada e orquestração em PowerShell. A exclusão dos diretórios locais de perfil é realizada com <code>System.IO.Directory.Delete()</code>, do .NET, mantendo verificação de resultados e tentativas limitadas.</p>`
+        + `<p>Para configurar a ferramenta, consulte o <a href="https://github.com/omahisson/cartilhaSegurancaDigital/blob/main/docs/sanitizacao/README.md" target="_blank" rel="noopener noreferrer">tutorial de configuração da ferramenta de sanitização 3.0A no GitHub ${criarIcone('external', 15)}</a>.</p>`
         + `</div>`
         + `<div class="process-grid">${listaEtapas}</div>`
         + `<div class="browser-badges"><span>${criarIcone('monitor', 18)} Google Chrome</span><span>${criarIcone('monitor', 18)} Microsoft Edge</span><span>${criarIcone('monitor', 18)} Mozilla Firefox</span>`
