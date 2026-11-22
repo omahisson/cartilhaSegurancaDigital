@@ -72,6 +72,12 @@ cartilha-seguranca-digital/
 
 A navegação usa fragmentos `#/...`, de modo que funciona em hospedagens estáticas sem regras de reescrita de URL.
 
+### Instalação reproduzível e publicação
+
+O workflow de publicação usa Node.js 22 e `npm ci` para instalar as versões registradas em `package-lock.json` antes do build. Para reproduzir essas etapas localmente, execute `npm ci` e `npm run build`.
+
+A pasta `node_modules/` é gerada pela instalação e ignorada pelo Git. Versione `package.json` e `package-lock.json` ao alterar dependências. Assim, cada ambiente instala os executáveis adequados ao seu sistema operacional.
+
 ## Documentação da ferramenta
 
 - [Tutorial de configuração da sanitização 3.0A](docs/sanitizacao/README.md): configuração no Agendador de Tarefas, remoção via .NET, validação e consulta ao arquivo `%TEMP%\SanitizacaoNavegadores_3.0A.log`.
